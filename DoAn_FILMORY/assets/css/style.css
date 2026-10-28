@@ -1,0 +1,1467 @@
+
+/* =====================================================
+   FILMORY - PREMIUM PHOTOGRAPHY E-COMMERCE WEBSITE
+   Theme: Warm Ivory | Forest Green | Copper Brown
+   File: assets/css/style.css
+===================================================== */
+
+
+/* =====================================================
+   01. BIẾN MÀU VÀ THIẾT LẬP CHUNG
+===================================================== */
+
+:root {
+    --primary: #344b3b;
+    --primary-dark: #223529;
+    --primary-light: #e5ebe2;
+
+    --cream: #faf8f2;
+    --cream-dark: #f0ede3;
+    --white: #ffffff;
+
+    --copper: #b77d59;
+    --copper-light: #d5a17d;
+
+    --text: #292e28;
+    --text-light: #666c63;
+    --text-muted: #92958c;
+
+    --border: #e5e1d6;
+    --shadow: 0 12px 35px rgba(38, 48, 38, 0.07);
+    --shadow-hover: 0 20px 45px rgba(38, 48, 38, 0.13);
+
+    --font-heading: Georgia, "Times New Roman", serif;
+    --font-body: "Helvetica Neue", Arial, sans-serif;
+
+    --container: 1440px;
+    --section-padding: 90px 7%;
+}
+
+
+/* =====================================================
+   02. RESET VÀ CẤU HÌNH CƠ BẢN
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 30px;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+    font-family: var(--font-body);
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+::selection {
+    color: var(--white);
+    background: var(--primary);
+}
+
+:focus-visible {
+    outline: 2px solid var(--copper);
+    outline-offset: 4px;
+}
+
+
+/* =====================================================
+   03. THANH THÔNG BÁO TRÊN CÙNG
+===================================================== */
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    padding: 7px 15px;
+
+    color: var(--white);
+    background: var(--primary-dark);
+
+    text-align: center;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   04. HEADER VÀ LOGO
+===================================================== */
+
+.header {
+    position: relative;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    width: 100%;
+    min-height: 88px;
+    padding: 18px 7%;
+
+    background: rgba(250, 248, 242, 0.98);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    flex-shrink: 0;
+
+    color: var(--primary);
+    font-family: var(--font-heading);
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    line-height: 1.2;
+}
+
+.logo span {
+    color: var(--copper);
+}
+
+.header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 27px;
+}
+
+.header nav a {
+    position: relative;
+
+    padding: 9px 0;
+
+    color: #50564d;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+
+    transition: color 0.25s ease;
+}
+
+.header nav a::after {
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+
+    width: 0;
+    height: 1px;
+
+    content: "";
+    background: var(--copper);
+
+    transition: width 0.3s ease;
+}
+
+.header nav a:hover,
+.header nav a.active {
+    color: var(--copper);
+}
+
+.header nav a:hover::after,
+.header nav a.active::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    gap: 14px;
+}
+
+.cart-link {
+    color: var(--text);
+    font-size: 12px;
+    white-space: nowrap;
+    transition: color 0.25s ease;
+}
+
+.cart-link:hover {
+    color: var(--copper);
+}
+
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 10px 16px;
+
+    color: var(--primary);
+    background: transparent;
+    border: 1px solid var(--primary);
+
+    font-size: 11px;
+    white-space: nowrap;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.login-btn:hover {
+    color: var(--white);
+    background: var(--primary);
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   05. NÚT BẤM DÙNG CHUNG
+===================================================== */
+
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 48px;
+    padding: 13px 23px;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.btn-primary {
+    color: var(--white);
+    background: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-primary:hover {
+    color: var(--white);
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    box-shadow: 0 8px 20px rgba(34, 53, 41, 0.15);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    color: var(--primary);
+    background: transparent;
+    border: 1px solid #c7c7b9;
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   06. BANNER CHÍNH
+===================================================== */
+
+.hero {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+    align-items: center;
+    gap: 6%;
+
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+
+    padding: 85px 7% 90px;
+
+    background:
+        radial-gradient(
+            ellipse at 12% 15%,
+            #fcfaf4 0%,
+            #f3f0e7 48%,
+            #e9e8dc 100%
+        );
+
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 570px;
+}
+
+.eyebrow {
+    margin-bottom: 18px;
+
+    color: var(--copper);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2.8px;
+    line-height: 1.7;
+}
+
+.hero .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero .eyebrow::before {
+    display: inline-block;
+    flex-shrink: 0;
+
+    width: 30px;
+    height: 1px;
+
+    content: "";
+    background: var(--copper);
+}
+
+.hero h1 {
+    margin: 0;
+
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: clamp(43px, 4.4vw, 68px);
+    font-weight: normal;
+    line-height: 1.13;
+    letter-spacing: -1.7px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+    font-style: italic;
+}
+
+.hero-description {
+    max-width: 420px;
+    margin-top: 25px;
+
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 13px;
+
+    margin-top: 30px;
+}
+
+.hero-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 36px;
+
+    color: var(--text-light);
+    font-size: 11px;
+}
+
+.hero-note span {
+    color: var(--copper);
+    font-size: 15px;
+}
+
+.hero-image {
+    position: relative;
+
+    width: 100%;
+    height: clamp(350px, 37vw, 490px);
+
+    background: #e3ded0;
+    box-shadow: 15px 15px 0 rgba(52, 75, 59, 0.07);
+
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.8s ease;
+}
+
+.hero-image:hover img {
+    transform: scale(1.04);
+}
+
+.image-label {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+
+    padding: 17px 20px;
+
+    background: rgba(250, 248, 242, 0.95);
+    backdrop-filter: blur(8px);
+}
+
+.image-label span {
+    display: block;
+
+    color: var(--copper);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.image-label strong {
+    display: block;
+    margin-top: 3px;
+
+    color: var(--primary);
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: normal;
+}
+
+
+/* =====================================================
+   07. TIÊU ĐỀ CÁC KHU VỰC
+===================================================== */
+
+.section {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: var(--section-padding);
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+
+    margin-bottom: 36px;
+}
+
+.section-heading > div {
+    min-width: 0;
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 10px;
+}
+
+.section-heading h2,
+.story h2 {
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: clamp(29px, 3vw, 41px);
+    font-weight: normal;
+    line-height: 1.3;
+    letter-spacing: -0.7px;
+}
+
+.section-description {
+    margin-top: 12px;
+
+    color: var(--text-light);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    flex-shrink: 0;
+    padding-bottom: 6px;
+
+    color: var(--primary);
+    border-bottom: 1px solid var(--primary);
+
+    font-size: 11px;
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.view-all:hover {
+    color: var(--copper);
+    border-color: var(--copper);
+}
+
+
+/* =====================================================
+   08. DANH MỤC SẢN PHẨM
+===================================================== */
+
+.categories {
+    background: var(--cream);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.category-card {
+    position: relative;
+
+    display: block;
+    height: 350px;
+    min-width: 0;
+
+    background: #e5e0d4;
+
+    overflow: hidden;
+}
+
+.category-card::after {
+    position: absolute;
+    inset: 0;
+
+    content: "";
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition:
+        transform 0.65s ease,
+        filter 0.4s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.055);
+}
+
+.category-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 25px;
+
+    color: var(--white);
+
+    background: linear-gradient(
+        to top,
+        rgba(22, 32, 24, 0.88) 0%,
+        rgba(22, 32, 24, 0.45) 34%,
+        rgba(22, 32, 24, 0.04) 75%,
+        transparent 100%
+    );
+
+    transition: background 0.3s ease;
+}
+
+.category-card:hover .category-overlay {
+    background: linear-gradient(
+        to top,
+        rgba(22, 32, 24, 0.92) 0%,
+        rgba(22, 32, 24, 0.48) 42%,
+        transparent 100%
+    );
+}
+
+.category-overlay span {
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.category-overlay h3 {
+    margin: 7px 0 4px;
+
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 31px;
+    font-weight: normal;
+    line-height: 1.3;
+}
+
+.category-overlay p {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   09. KHU VỰC SẢN PHẨM NỔI BẬT
+===================================================== */
+
+.featured {
+    max-width: none;
+    background: var(--cream-dark);
+}
+
+.featured .section-heading,
+.featured .product-grid {
+    max-width: calc(var(--container) * 0.86);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.featured .section-heading {
+    margin-bottom: 36px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    min-width: 0;
+    background: transparent;
+}
+
+.product-image {
+    position: relative;
+
+    display: block;
+    height: 310px;
+
+    background: #e5e0d4;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    transition:
+        transform 0.65s ease,
+        filter 0.4s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.045);
+}
+
+.product-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+
+    display: inline-block;
+    padding: 7px 11px;
+
+    color: var(--primary);
+    background: rgba(250, 248, 242, 0.96);
+
+    font-size: 8px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+}
+
+.sale-tag {
+    color: #955c3b;
+}
+
+.product-info {
+    padding: 19px 2px 22px;
+}
+
+.product-type {
+    color: var(--copper);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+}
+
+.product-info h3 {
+    margin: 7px 0 15px;
+
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 1.4;
+
+    transition: color 0.25s ease;
+}
+
+.product-card:hover .product-info h3 {
+    color: var(--primary);
+}
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding-top: 14px;
+    border-top: 1px solid #dedacd;
+}
+
+.product-bottom p {
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+.product-bottom strong {
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product-bottom a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 36px;
+    height: 36px;
+
+    color: var(--primary);
+    border: 1px solid #d7d4c9;
+    border-radius: 50%;
+
+    font-size: 19px;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.product-bottom a:hover {
+    color: var(--white);
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: rotate(45deg);
+}
+
+
+/* =====================================================
+   10. CÂU CHUYỆN THƯƠNG HIỆU
+===================================================== */
+
+.story {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: 7%;
+
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+
+    padding: 95px 8%;
+    background: var(--cream);
+}
+
+.story-image {
+    position: relative;
+
+    height: 420px;
+    min-width: 0;
+
+    background: #e4dfd2;
+    overflow: hidden;
+}
+
+.story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
+}
+
+.story-image:hover img {
+    transform: scale(1.035);
+}
+
+.story-content {
+    max-width: 500px;
+}
+
+.story-content .eyebrow {
+    margin-bottom: 15px;
+}
+
+.story-content h2 {
+    font-size: clamp(31px, 3.3vw, 44px);
+}
+
+.story-content p:not(.eyebrow) {
+    margin-top: 22px;
+
+    color: var(--text-light);
+    font-size: 13px;
+    line-height: 2.1;
+}
+
+.story-content .btn-primary {
+    margin-top: 27px;
+}
+
+
+/* =====================================================
+   11. KHU VỰC LỢI ÍCH
+===================================================== */
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px;
+
+    padding: 55px 8%;
+
+    color: var(--white);
+    background: var(--primary-dark);
+}
+
+.benefit {
+    padding-left: 23px;
+    border-left: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.benefit span {
+    color: var(--copper-light);
+    font-family: var(--font-heading);
+    font-size: 27px;
+    line-height: 1.5;
+}
+
+.benefit h3 {
+    margin: 10px 0;
+
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 21px;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+.benefit p {
+    max-width: 300px;
+
+    color: #d4dcd3;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   12. FOOTER
+===================================================== */
+
+.footer {
+    padding: 50px 20px;
+
+    color: var(--white);
+    background: #1d2820;
+    text-align: center;
+}
+
+.footer h2 {
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: normal;
+    letter-spacing: 4px;
+}
+
+.footer p {
+    margin-top: 9px;
+
+    color: #d1d7ce;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.footer p:last-child {
+    margin-top: 22px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+
+/* =====================================================
+   13. HIỆU ỨNG CHUYỂN ĐỘNG
+===================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero-content {
+        animation: filmoryFadeUp 0.7s ease both;
+    }
+
+    .hero-image {
+        animation: filmoryFadeIn 0.9s ease both;
+    }
+
+    @keyframes filmoryFadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(18px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes filmoryFadeIn {
+        from {
+            opacity: 0;
+            transform: translateX(14px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+
+/* =====================================================
+   14. TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
+    .header {
+        padding-right: 5%;
+        padding-left: 5%;
+        gap: 18px;
+    }
+
+    .header nav {
+        gap: 17px;
+    }
+
+    .header nav a {
+        font-size: 11px;
+    }
+
+    .logo {
+        font-size: 26px;
+    }
+
+    .header-actions {
+        gap: 10px;
+    }
+
+    .hero {
+        padding-right: 5%;
+        padding-left: 5%;
+        gap: 4%;
+    }
+
+    .hero h1 {
+        font-size: clamp(39px, 5vw, 54px);
+    }
+
+    .hero-image {
+        height: 370px;
+    }
+
+    .section {
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    .category-card {
+        height: 290px;
+    }
+
+    .product-image {
+        height: 260px;
+    }
+
+    .story {
+        padding-right: 6%;
+        padding-left: 6%;
+        gap: 5%;
+    }
+
+    .story-image {
+        height: 350px;
+    }
+
+    .benefits {
+        padding-right: 6%;
+        padding-left: 6%;
+        gap: 25px;
+    }
+}
+
+
+/* =====================================================
+   15. MÀN HÌNH TABLET NHỎ
+===================================================== */
+
+@media (max-width: 800px) {
+    .header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top: 17px;
+        padding-bottom: 17px;
+    }
+
+    .header nav {
+        order: 3;
+        justify-content: flex-start;
+        width: 100%;
+        gap: 22px;
+    }
+
+    .header-actions {
+        margin-left: auto;
+    }
+
+    .hero {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+        gap: 25px;
+        padding-top: 60px;
+        padding-bottom: 65px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .hero-image {
+        height: 330px;
+    }
+
+    .section {
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .category-grid {
+        gap: 14px;
+    }
+
+    .category-card {
+        height: 250px;
+    }
+
+    .category-overlay {
+        padding: 17px;
+    }
+
+    .category-overlay h3 {
+        font-size: 25px;
+    }
+
+    .product-grid {
+        gap: 17px;
+    }
+
+    .product-image {
+        height: 220px;
+    }
+
+    .product-info h3 {
+        font-size: 19px;
+    }
+
+    .story {
+        grid-template-columns: 1fr 1fr;
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .story-image {
+        height: 300px;
+    }
+
+    .story-content h2 {
+        font-size: 31px;
+    }
+
+    .benefits {
+        gap: 18px;
+    }
+
+    .benefit {
+        padding-left: 15px;
+    }
+
+    .benefit h3 {
+        font-size: 18px;
+    }
+}
+
+
+/* =====================================================
+   16. ĐIỆN THOẠI
+===================================================== */
+
+@media (max-width: 600px) {
+    body {
+        font-size: 13px;
+    }
+
+    .top-bar {
+        min-height: 29px;
+        padding: 7px 10px;
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    .header {
+        min-height: auto;
+        padding: 17px 5%;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 25px;
+        letter-spacing: 1.5px;
+    }
+
+    .header-actions {
+        gap: 9px;
+    }
+
+    .cart-link {
+        font-size: 11px;
+    }
+
+    .login-btn {
+        min-height: 35px;
+        padding: 7px 10px;
+        font-size: 10px;
+    }
+
+    .header nav {
+        gap: 17px;
+        padding-top: 3px;
+    }
+
+    .header nav a {
+        font-size: 11px;
+    }
+
+    .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+
+        padding: 45px 5% 50px;
+    }
+
+    .hero h1 {
+        font-size: clamp(39px, 10vw, 48px);
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        margin-top: 19px;
+        font-size: 13px;
+        line-height: 1.9;
+    }
+
+    .hero-buttons {
+        gap: 10px;
+        margin-top: 24px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        min-height: 44px;
+        padding: 12px 16px;
+        font-size: 11px;
+    }
+
+    .hero-note {
+        margin-top: 24px;
+        font-size: 10px;
+    }
+
+    .hero-image {
+        height: 310px;
+    }
+
+    .image-label {
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        padding: 13px 15px;
+    }
+
+    .image-label strong {
+        font-size: 19px;
+    }
+
+    .section {
+        padding: 55px 5%;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 25px;
+    }
+
+    .section-heading h2,
+    .story h2 {
+        font-size: 31px;
+    }
+
+    .section-description {
+        font-size: 12px;
+    }
+
+    .category-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 15px;
+    }
+
+    .category-card {
+        height: 320px;
+    }
+
+    .category-overlay {
+        padding: 22px;
+    }
+
+    .category-overlay h3 {
+        font-size: 29px;
+    }
+
+    .product-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 330px;
+    }
+
+    .product-info {
+        padding: 16px 2px 24px;
+    }
+
+    .product-info h3 {
+        font-size: 22px;
+    }
+
+    .product-bottom p {
+        font-size: 11px;
+    }
+
+    .story {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        padding: 55px 6%;
+    }
+
+    .story-image {
+        height: 320px;
+    }
+
+    .story-content h2 {
+        font-size: 34px;
+    }
+
+    .story-content p:not(.eyebrow) {
+        font-size: 13px;
+    }
+
+    .benefits {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+        padding: 42px 7%;
+    }
+
+    .benefit {
+        padding-left: 18px;
+    }
+
+    .benefit h3 {
+        font-size: 21px;
+    }
+
+    .footer {
+        padding: 40px 18px;
+    }
+
+    .footer h2 {
+        font-size: 29px;
+    }
+
+    .footer p {
+        font-size: 11px;
+    }
+}
+
+
+/* =====================================================
+   17. ĐIỆN THOẠI RẤT NHỎ
+===================================================== */
+
+@media (max-width: 380px) {
+    .header {
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .header-actions {
+        gap: 7px;
+    }
+
+    .cart-link {
+        font-size: 10px;
+    }
+
+    .login-btn {
+        padding: 7px 8px;
+        font-size: 9px;
+    }
+
+    .header nav {
+        gap: 12px;
+    }
+
+    .header nav a {
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+    }
+
+    .hero-image {
+        height: 260px;
+    }
+
+    .category-card {
+        height: 275px;
+    }
+
+    .product-image {
+        height: 275px;
+    }
+
+    .section-heading h2,
+    .story-content h2 {
+        font-size: 28px;
+    }
+}
+
+
+/* =====================================================
+   18. HỖ TRỢ NGƯỜI DÙNG GIẢM CHUYỂN ĐỘNG
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
